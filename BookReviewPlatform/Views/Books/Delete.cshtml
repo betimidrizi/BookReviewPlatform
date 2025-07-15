@@ -1,0 +1,19 @@
+﻿@model BookReviewPlatform.Models.Book
+
+@{
+    ViewData["Title"] = "Delete Book";
+}
+
+<h2>Are you sure you want to delete this book?</h2>
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>Author: @Model.Author</p>
+    <p>Description: @Model.Description</p>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "Books")" class="btn btn-secondary">Cancel</a>
+</form>

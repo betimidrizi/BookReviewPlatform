@@ -1,0 +1,38 @@
+﻿@model BookReviewPlatform.Models.Book
+
+@{
+    ViewData["Title"] = "Create Book";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center mb-4">Create a New Book</h2>
+
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="Title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="Title" name="Title" placeholder="Enter book title" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="Author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="Author" name="Author" placeholder="Enter author's name" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="Description" class="form-label">Description</label>
+                <textarea class="form-control" id="Description" name="Description" rows="4" placeholder="Write a short description..." required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="ImagePath" class="form-label">Upload Book Cover</label>
+                <input type="file" class="form-control" id="ImagePath" name="image" accept="image/*" required />
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <a href="@Url.Action("Index", "Books")" class="btn btn-secondary btn-lg">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+/* Custom styles for the Book Review Platform */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    margin-left: 15px;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%; /* Full width of the screen */
+}
+
+    .btn-logout {
+    background: none;
+    border: none;
+    color: white !important;
+    padding: 0;
+}
+
+    .btn-logout:hover {
+        color: #f8f9fa !important;
+    }
+
+.btn-outline-success, .btn-outline-danger {
+    font-weight: bold;
+    transition: 0.3s;
+    border-width: 2px;
+}
+
+    .btn-outline-success:hover {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #007bff;
+        padding: 10px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+}
+

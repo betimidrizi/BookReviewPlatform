@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model BookReviewPlatform.ViewModels.RegisterViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Registration Form Card -->
+            <div class="card shadow-lg border-0 rounded-3 p-4">
+                <div class="card-body">
+                    <h2 class="text-center text-primary mb-4">Create Your Account</h2>
+
+                    <!-- Form -->
+                    <form asp-action="Register" asp-controller="Account" method="post">
+
+                        <!-- Email Input -->
+                        <div class="form-group mb-4">
+                            <label for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- Password Input -->
+                        <div class="form-group mb-4">
+                            <label for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Confirm Password Input -->
+                        <div class="form-group mb-4">
+                            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm your password" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Register</button>
+                        </div>
+                    </form>
+
+                    <!-- Login Link -->
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="@Url.Action("Login", "Account")" class="text-primary">Login here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

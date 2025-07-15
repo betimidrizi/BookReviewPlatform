@@ -1,0 +1,53 @@
+﻿@model BookReviewPlatform.Models.Book
+
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<h2>Edit Book</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <!-- Show existing image if available -->
+    @if (!string.IsNullOrEmpty(Model.ImagePath))
+    {
+        <div class="form-group">
+            <label>Current Image:</label>
+            <br />
+            <img src="@Model.ImagePath" alt="Book Image" style="max-width: 200px; height: auto;" />
+        </div>
+    }
+
+    <div class="form-group">
+        <label for="Image">Upload New Image</label>
+        <input type="file" class="form-control" id="Image" name="image" />
+    </div>
+
+    <!-- Keep the old image path if a new image is not uploaded -->
+    <input type="hidden" asp-for="ImagePath" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+</form>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to Books List</a>

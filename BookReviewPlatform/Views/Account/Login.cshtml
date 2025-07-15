@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model BookReviewPlatform.ViewModels.LoginViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Login Form Card -->
+            <div class="card shadow-lg border-0 rounded-3 p-4">
+                <div class="card-body">
+                    <h2 class="text-center text-primary mb-4">Login to Your Account</h2>
+
+                    <!-- Form -->
+                    <form asp-action="Login" asp-controller="Account" method="post">
+                        <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+
+                        <!-- Email Input -->
+                        <div class="form-group mb-4">
+                            <label for="Email" class="form-label">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- Password Input -->
+                        <div class="form-group mb-4">
+                            <label for="Password" class="form-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Remember Me Checkbox -->
+                        <div class="form-group form-check mb-4">
+                            <input asp-for="RememberMe" class="form-check-input" id="RememberMe" />
+                            <label for="RememberMe" class="form-check-label">Remember me</label>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Login</button>
+                        </div>
+                    </form>
+
+                    <!-- Sign Up Link -->
+                    <div class="text-center mt-3">
+                        <p>Don't have an account? <a href="@Url.Action("Register", "Account")" class="text-primary">Sign up here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

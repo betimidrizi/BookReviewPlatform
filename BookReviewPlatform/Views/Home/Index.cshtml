@@ -1,0 +1,119 @@
+﻿ @{
+     ViewData["Title"] = "Home";
+ }
+
+ @if (User.Identity.IsAuthenticated)
+ {
+     <!-- Content for logged-in users -->
+     <div class="container mt-4">
+         <main role="main" class="pb-3">
+             <div class="text-center">
+                 <!-- Welcome Header -->
+                 <h1 class="display-4 text-primary fw-bold mb-4">Welcome Back to the Book Review Platform!</h1>
+                 <p class="lead mb-4">Explore new books, write insightful reviews, and connect with fellow readers.</p>
+
+                 <!-- Welcome Message with Personalization -->
+                 <div class="row justify-content-center">
+                     <div class="col-md-8">
+                         <div class="card shadow-lg p-4 mb-5 rounded">
+                             <div class="card-body text-center">
+                                 <h3 class="card-title text-info">Hello, @User.Identity.Name!</h3>
+                                 <p class="card-text mb-4">We’re excited to have you back. Let’s dive into the latest books and reviews.</p>
+                                 <div class="d-flex justify-content-center">
+                                     <a href="@Url.Action("Index", "Books")" class="btn btn-primary btn-lg me-3 px-5">Browse New Books</a>
+                                     <a href="@Url.Action("Index", "Books")" class="btn btn-success btn-lg ms-3 px-5">Write a Review</a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <!-- Inspirational Quote Section -->
+                 <section class="mt-5 text-center">
+                     <blockquote class="blockquote text-info shadow-sm p-4 rounded-3 bg-light">
+                         <p class="mb-0">"A book is a dream that you hold in your hands." - Neil Gaiman</p>
+                     </blockquote>
+                 </section>
+
+                 <!-- Platform Features Section (Non-Personalized) -->
+                 <div class="mt-5">
+                     <h2 class="text-primary mb-4">🌟 Upcoming Features</h2>
+                     <div class="row justify-content-center">
+                         <div class="col-md-4">
+                             <div class="card shadow-sm p-4 mb-5 rounded">
+                                 <div class="card-body text-center">
+                                     <h4 class="text-warning">🔎 Search for Books</h4>
+                                     <p>Find books by genre, author, or title. Discover new reads easily!</p>
+                                     <a href="@Url.Action("Search", "Books")" class="btn btn-warning">Start Searching</a>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="col-md-4">
+                             <div class="card shadow-sm p-4 mb-5 rounded">
+                                 <div class="card-body text-center">
+                                     <h4 class="text-success">💬 Join Discussions</h4>
+                                     <p>Participate in book discussions with fellow readers and share your opinions.</p>
+                                     <a href="@Url.Action("Discussions", "Books")" class="btn btn-success">Join Discussions</a>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="col-md-4">
+                             <div class="card shadow-sm p-4 mb-5 rounded">
+                                 <div class="card-body text-center">
+                                     <h4 class="text-info">📈 Track Your Reading</h4>
+                                     <p>Monitor your reading progress and set personal reading goals.</p>
+                                     <a href="@Url.Action("ReadingProgress", "Books")" class="btn btn-info">Track Progress</a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+             </div>
+         </main>
+     </div>
+
+
+ }
+ else
+ {
+     <!-- Content for users not logged in -->
+     <section class="hero text-center text-white py-5" style="background-color: #007bff;">
+         <div class="container">
+             <h1 class="fw-bold">Discover & Share Amazing Books</h1>
+             <p class="lead">Join thousands of book lovers, write reviews, and explore new reads.</p>
+             <a asp-controller="Account" asp-action="Register" class="btn btn-warning btn-lg mt-3">Join Now for Free</a>
+         </div>
+     </section>
+
+     <section class="container text-center my-5">
+         <h2 class="text-primary">Why Join Our Community?</h2>
+         <div class="row mt-4">
+             <div class="col-md-4">
+                 <h4>📖 Personalized Recommendations</h4>
+                 <p>Get book suggestions based on your reading preferences.</p>
+             </div>
+             <div class="col-md-4">
+                 <h4>✍️ Write & Read Reviews</h4>
+                 <p>Share your thoughts on books and discover top-rated reviews.</p>
+             </div>
+             <div class="col-md-4">
+                 <h4>🏆 Participate in Challenges</h4>
+                 <p>Join monthly reading challenges and compete with friends.</p>
+             </div>
+         </div>
+     </section>
+
+     <section class="container my-5 text-center">
+         <h2 class="text-primary">💬 What Our Users Say</h2>
+         <blockquote class="blockquote mt-4">
+             <p>"This platform helped me find amazing books and connect with fellow readers!"</p>
+             <footer class="blockquote-footer">Sarah, Book Enthusiast</footer>
+         </blockquote>
+     </section>
+ }
+
+
+
